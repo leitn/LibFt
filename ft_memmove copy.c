@@ -38,23 +38,6 @@ void *ft_memmove(void *dest, const void *src, size_t n)
     return dest;
 }
 
-void *ft_memcpy (void *dest, const void *src, size_t n)
-{
-    long unsigned int i;
-    const unsigned char *s = src;
-    unsigned char *d = dest;
-
-    i = 0;
-    while(i < n)
-    {
-        d[i] = s[i];
-        i++;
-    }
-
-    return dest;
-}
-
-
 int main()
 {
     char str1[50] = "I am going from Delhi to Gorakhpur";
