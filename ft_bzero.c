@@ -1,25 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: letnitan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/10 10:04:21 by letnitan          #+#    #+#             */
-/*   Updated: 2022/11/10 10:04:24 by letnitan         ###   ########.fr       */
+/*   Created: 2022/11/10 11:10:24 by letnitan          #+#    #+#             */
+/*   Updated: 2022/11/10 11:10:27 by letnitan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <string.h>
 
-void ft_memset (void *str, int c, size_t n)
-{
-    int i;
-    unsigned char *s = str;
+#include <strings.h>
 
-    i = 0;
-    while(i < n)
-    {
-        s[i] = c;
-        i++;
-    }
-}
+void ft_bzero(void *s, size_t n)
+{}
