@@ -12,9 +12,9 @@
 
 #include <strings.h>
 
-void ft_bzero(void *s, size_t n)
+void *ft_bzero(void *str, size_t n)
 {    
-    int i;
+    long unsigned int i;
     unsigned char *s = str;
 
     i = 0;
@@ -23,4 +23,6 @@ void ft_bzero(void *s, size_t n)
         s[i] = 0;
         i++;
     }
+
+    return s;
 }
