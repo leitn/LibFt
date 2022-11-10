@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: letnitan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/10 10:04:21 by letnitan          #+#    #+#             */
-/*   Updated: 2022/11/10 10:04:24 by letnitan         ###   ########.fr       */
+/*   Created: 2022/11/10 11:30:20 by letnitan          #+#    #+#             */
+/*   Updated: 2022/11/10 11:30:24 by letnitan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include <string.h>
 
-void *ft_memset (void *str, int c, size_t n)
+void *ft_memcpy (void *dest, const void *src, size_t n)
 {
     long unsigned int i;
-    unsigned char *s = str;
+    const unsigned char *s = src;
+    unsigned char *d = dest;
 
     i = 0;
     while(i < n)
     {
-        s[i] = c;
+        d[i] = s[i];
         i++;
     }
 
-    return s;
+    return d;
 }
