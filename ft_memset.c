@@ -9,9 +9,9 @@
 /*   Updated: 2022/11/10 10:04:24 by letnitan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include <string.h>
 
-
-void ft_memset (void *str, char c, int len)
+void ft_memset (void *str, char c, size_t len)
 {
     int i;
     unsigned char *s = str;
