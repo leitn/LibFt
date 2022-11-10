@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: letnitan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/10 15:30:57 by letnitan          #+#    #+#             */
-/*   Updated: 2022/11/10 15:31:03 by letnitan         ###   ########.fr       */
+/*   Created: 2022/11/10 16:20:10 by letnitan          #+#    #+#             */
+/*   Updated: 2022/11/10 16:20:13 by letnitan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,25 +24,18 @@ size_t	ft_strlen (const char *str)
 	return (i);
 }
 
-size_t ft_strlcpy(char *dst, const char *src, size_t size)
+size_t ft_strlcat(char *dst, const char *src, size_t size)
 {
-    long unsigned int i;
-    const unsigned char *s = src;
-    unsigned char *d = dst;
+    size_t dst_len = ft_strlen(dst);
+    size_t i;
 
-    if (size <= 0)
-        return ft_strlen(src);
+    i = 0;
+   while(i < ft_strlen(src))
+   {
+    dst[dst_len + i] = src[i];
+    i++;
+   }
+    dst[dst_len + i] = '\0';
 
-    else
-    {
-        i = 0;
-        while (i < size)
-        {
-            d[i] = s[i];
-            i++;
-        }
-        
-        s[size] == '\0';
-        return  ft_strlen(src);
-    }
+   return ft_strlen(dst);
 }
