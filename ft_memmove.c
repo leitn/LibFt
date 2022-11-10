@@ -1,28 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: letnitan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/10 11:10:24 by letnitan          #+#    #+#             */
-/*   Updated: 2022/11/10 11:10:27 by letnitan         ###   ########.fr       */
+/*   Created: 2022/11/10 11:43:04 by letnitan          #+#    #+#             */
+/*   Updated: 2022/11/10 11:43:08 by letnitan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <strings.h>
+#include <string.h>
 
-void *ft_bzero(void *str, size_t n)
-{    
+void *ft_memmove(void *dest, const void *src, size_t n)
+{
     long unsigned int i;
-    unsigned char *s = str;
+    const unsigned char *s = src;
+    unsigned char tmp[sizeof(char)* n];
+    unsigned char *d = dest;
 
     i = 0;
     while(i < n)
     {
-        s[i] = 0;
+        tmp[i] = s[i];
         i++;
     }
 
-    return str;
+    i = 0;
+    while (i < n)
+    {
+        d[i] = tmp[i];
+        i++;
+    }
+    
+    return dest;
 }
