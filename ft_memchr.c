@@ -12,21 +12,21 @@
 
 #include <string.h>
 
-void *ft_memchr(const void *s, int c, size_t n)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-    size_t  size;
-    if (n == 0)
-        return NULL;
+	size_t	size;
 
-    size = 0;
-    while ((size < n) && ((char*)s))
-        {
-            if (*((char*)s+size) == (char)c)
-                return ((void*)s+size);
-            else
-                {
-                    size++;
-                }
-        }
-    return NULL;
+	if (n == 0)
+		return (NULL);
+	size = 0;
+	while ((size < n) && ((char *)s))
+	{
+		if (*((char *)s + size) == (char )c)
+			return ((void *)s + size);
+		else
+		{
+			size++;
+		}
+	}
+	return (NULL);
 }
