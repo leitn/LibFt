@@ -11,17 +11,7 @@
 /* ************************************************************************** */
 #include "libft.h"
 
-void	*ft_bzero(void *str, size_t n)
+void	ft_bzero(void *str, size_t n)
 {
-	long unsigned int	i;
-	long unsigned char	s;
-
-	*s = str;
-	i = 0;
-	while (i < n)
-	{
-		s[i] = 0;
-		i++;
-	}
-	return (str);
+	ft_memset(str, 0, n);
 }
