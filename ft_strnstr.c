@@ -9,10 +9,7 @@
 /*   Updated: 2022/11/13 11:09:38 by letnitan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <bsd/string.h>
-#include <strings.h>
-#include <stdio.h>
-#include <stdlib.h>
+#include "libft.h"
 
 char *ft_strnstr(const char *big, const char *little, size_t len)
 {
