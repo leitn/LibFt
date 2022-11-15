@@ -14,15 +14,15 @@
 int	ft_uppercase(char c)
 {
 	if ((c >= 'A' && c <= 'Z'))
-			return (0);
+		return (0);
 	else
-	        return (1);
+		return (1);
 }
 
-int ft_tolower(int c)
+int	ft_tolower(int c)
 {
-    if (ft_uppercase(c) == 0)
-        return (c + 32);
-    else
-        return c;
+	if (ft_uppercase(c) == 0)
+		return (c + 32);
+	else
+		return (c);
 }
