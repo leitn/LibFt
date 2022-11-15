@@ -5,33 +5,11 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: letnitan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/10 11:43:04 by letnitan          #+#    #+#             */
-/*   Updated: 2022/11/10 11:43:08 by letnitan         ###   ########.fr       */
+/*   Created: 2022/11/15 18:11:01 by letnitan          #+#    #+#             */
+/*   Updated: 2022/11/15 18:11:04 by letnitan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void *ft_memmove(void *dest, const void *src, size_t n)
-{
-    long unsigned int i;
-    const unsigned char *s = src;
-    unsigned char tmp[sizeof(char)* n]; //interdit !!
-    unsigned char *d = dest;
-
-    i = 0;
-    while(i < n)
-    {
-        tmp[i] = s[i];
-        i++;
-    }
-
-    i = 0;
-    while (i < n)
-    {
-        d[i] = tmp[i];
-        i++;
-    }
-    
-    return dest;
-}
+void *memmove(void *dest, const void *src, size_t n);
