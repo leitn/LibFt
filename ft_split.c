@@ -14,73 +14,67 @@
 
 static char	*word_put(const char *s, char c)
 {
-	char	*str;
-	size_t	i;
-	size_t	j;
+	char			*str;
+	unsigned int	i;
+	unsigned int	j;
 
-	i = 0;
-	j = 0;
-	while(s[i++])
+	i = -1;
+	j = -1;
+	while (s[++i])
 	{
 		if (s[i] == c)
-			break;
+			break ;
 	}
-	str = (char *)malloc(sizeof(char) * (i + 1));
+	str = malloc(sizeof(char) * (i + 1));
 	if (!str)
 		return (NULL);
 	str[i] = '\0';
-	while (j < i)
-		{
-			str[j] = s[j];
-			j++;
-		}
+	while (++j < i)
+		str[j] = s[j];
 	return (str);
 }
 
-static size_t	str_count(char const *s, char c)
+static unsigned int	str_count(char const *s, char c)
 {
-	size_t	i;
-	size_t	str_count;
+	unsigned int	i;
+	unsigned int	str_count;
 
-	i = 0;
+	i = -1;
 	str_count = 0;
-	while (s[i])
+	while (s[++i])
 	{
 		while (s[i] == c && s[i + 1] != '\0')
 			i++;
 		if (s[i] != c)
 			str_count++;
-		while(s[i]!= c && s[i + 1])
+		while (s[i] != c && s[i + 1])
 			i++;
-		i++;
 	}
 	return (str_count);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	size_t	j;
-	size_t	i;
-	char	**str_tab;
-	
-	if(!s)
+	unsigned int	j;
+	unsigned int	i;
+	char			**str_tab;
+
+	if (!s)
 		return (NULL);
-	str_tab = (char **)malloc(sizeof(char *) * str_count(s, c));
+	str_tab = malloc(sizeof(char *) * (str_count(s, c) + 1));
 	if (!str_tab)
 		return (NULL);
-	
-	j = 0;
-	i = 0;
-	while (s[i] && str_count(s, c) != 0)
+	str_tab[str_count(s, c)] = NULL;
+	j = -1;
+	i = -1;
+	while (s[++i] && str_count(s, c) != 0)
 	{
 		while (s[i] == c && s[i + 1] != '\0')
 			i++;
 		if (s[i] != c)
-			str_tab[j++] = word_put(&s[i], c);
-		while(s[i]!= c && s[i + 1] != '\0')
+			str_tab[++j] = word_put(&s[i], c);
+		while (s[i] != c && s[i + 1] != '\0')
 			i++;
-		i++;
 	}
-	str_tab[str_count(s, c)] = NULL;
 	return (str_tab);
 }
