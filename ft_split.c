@@ -35,6 +35,7 @@ static size_t	str_count(char const *s, char c)
 	size_t	str_count;
 
 	i = 0;
+	str_count = 0;
 	while (s[i])
 	{
 		if (s[i] == c)
@@ -70,6 +71,6 @@ char	**ft_split(char const *s, char c)
 		x++;
 	}
 	str_tab[j] = word_put(s, x);
-	str_tab[j + 1] = '\0';
+	str_tab[j + 1] = NULL;
 	return (str_tab);
 }
