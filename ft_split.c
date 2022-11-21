@@ -64,10 +64,8 @@ char	**ft_split(char const *s, char c)
 	size_t	i;
 	char	**str_tab;
 
-	if (!s)
-		return (NULL);
 	str_tab = malloc(sizeof(char *) * (str_count(s, c) + 1));
-	if (!str_tab)
+	if (!str_tab || !s)
 		return (NULL);
 	str_tab[str_count(s, c)] = NULL;
 	j = 0;
