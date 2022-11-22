@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: letnitan <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: letnitan <letnitan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 09:37:18 by letnitan          #+#    #+#             */
-/*   Updated: 2022/11/10 09:37:26 by letnitan         ###   ########.fr       */
+/*   Updated: 2022/11/22 14:40:00 by letnitan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	unsigned int	j;
 
 	i = 0;
+	if (s1 == NULL || set == NULL)
+		return (NULL);
 	j = ft_strlen(s1) - 1;
 	if (is_set_beginning(s1, set) > 0)
 		i = is_set_beginning(s1, set);

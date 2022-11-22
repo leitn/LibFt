@@ -6,7 +6,7 @@
 /*   By: letnitan <letnitan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 11:53:20 by letnitan          #+#    #+#             */
-/*   Updated: 2022/11/22 11:55:12 by letnitan         ###   ########.fr       */
+/*   Updated: 2022/11/22 15:03:10 by letnitan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	ft_putstr_fd(char *s, int fd)
 	int	i;
 
 	i = 0;
+	if (s == NULL)
+		return ;
 	while (s[i])
 	{
 		write(fd, &s[i], 1);

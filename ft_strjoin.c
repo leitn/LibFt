@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: letnitan <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: letnitan <letnitan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 19:00:43 by letnitan          #+#    #+#             */
-/*   Updated: 2022/11/16 19:00:53 by letnitan         ###   ########.fr       */
+/*   Updated: 2022/11/22 14:56:29 by letnitan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,11 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	long unsigned int	i;
 	long unsigned int	j;
 
+	if (s1 == NULL || s2 == NULL)
+		return (NULL);
 	lentotal = (ft_strlen(s1) + ft_strlen(s2));
 	str = malloc(sizeof(char) * (lentotal + 1));
-	if (str == 0 || (!s1 && !s2))
+	if (str == NULL)
 		return (NULL);
 	i = 0;
 	j = 0;

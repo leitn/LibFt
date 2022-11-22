@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: letnitan <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: letnitan <letnitan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 17:37:24 by letnitan          #+#    #+#             */
-/*   Updated: 2022/11/18 17:37:28 by letnitan         ###   ########.fr       */
+/*   Updated: 2022/11/22 15:10:30 by letnitan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,10 @@ char	**ft_split(char const *s, char c)
 	size_t	i;
 	char	**str_tab;
 
+	if (s == NULL)
+		return (NULL);
 	str_tab = malloc(sizeof(char *) * (str_count(s, c) + 1));
-	if (!str_tab || !s)
+	if (str_tab == NULL)
 		return (NULL);
 	str_tab[str_count(s, c)] = NULL;
 	j = 0;
@@ -75,10 +77,7 @@ char	**ft_split(char const *s, char c)
 		while (s[i] == c && s[i + 1] != '\0')
 			i++;
 		if (s[i] != c)
-		{
-			str_tab[j] = word_put(&s[i], c);
-			j++;
-		}
+			str_tab[j++] = word_put(&s[i], c);
 		while (s[i] != c && s[i + 1] != '\0')
 			i++;
 		i++;
