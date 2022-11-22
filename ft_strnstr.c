@@ -6,7 +6,7 @@
 /*   By: letnitan <letnitan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 11:09:35 by letnitan          #+#    #+#             */
-/*   Updated: 2022/11/22 15:35:09 by letnitan         ###   ########.fr       */
+/*   Updated: 2022/11/22 18:01:05 by letnitan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,10 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	size_t	j;
 
 	i = 0;
-	if (*little == '\0' || len == 0)
+	if (*little == '\0')
 		return ((char *)big);
+	if (len == 0)
+		return (NULL);
 	while (i < len && (big[i]) != '\0')
 	{
 		j = 0;

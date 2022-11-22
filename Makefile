@@ -6,7 +6,7 @@
 #    By: letnitan <letnitan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/13 14:49:16 by letnitan          #+#    #+#              #
-#    Updated: 2022/11/22 14:34:53 by letnitan         ###   ########.fr        #
+#    Updated: 2022/11/22 18:02:08 by letnitan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,6 +61,8 @@ OBJS	= ${SRCS:.c=.o}
 
 OBJS_BONUS	= ${BONUS:.c=.o}
 
+CFLAGS = -Wall -Werror -Wextra
+
 $(NAME) : ${OBJS}
 	ar rc ${NAME} ${OBJS}
 
@@ -80,7 +82,7 @@ fclean : clean
 re : fclean all
 
 so:
-	cc -nostartfiles -fPIC -Wall -Wextra -Werror $(SRCS)
+	gcc -nostartfiles -fPIC $(CFLAGS) $(SRCS)
 	gcc -nostartfiles -shared -o libft.so $(OBJS)
 
 .o .c:
