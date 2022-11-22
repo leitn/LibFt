@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: letnitan <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: letnitan <letnitan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/13 14:49:16 by letnitan          #+#    #+#              #
-#    Updated: 2022/11/18 21:54:08 by letnitan         ###   ########.fr        #
+#    Updated: 2022/11/22 14:34:53 by letnitan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,9 +31,6 @@ SRCS =	ft_isalpha.c	\
 		ft_memchr.c	\
 		ft_memcmp.c	\
 		ft_strnstr.c	\
-		ft_striteri.c	\
-		ft_putchar_fd.c	\
-		ft_putstr_fd.c	\
 		ft_atoi.c	\
 		ft_calloc.c	\
 		ft_strdup.c	\
@@ -50,13 +47,29 @@ SRCS =	ft_isalpha.c	\
 		ft_memmove.c	\
 		ft_split.c	\
 
+BONUS =	ft_lstnez.c	\
+		ft_lstadd_front.c	\
+		ft_lstsize.c	\
+		ft_lstlast.c	\
+		ft_lstadd_back.c	\
+		ft_lstdelone.c	\
+		ft_lstclear.c	\
+		ft_lstiter.c	\
+		ft_lstmap.c	\
+
 OBJS	= ${SRCS:.c=.o}
 
-all:	${NAME}
-
+OBJS_BONUS	= ${BONUS:.c=.o}
 
 $(NAME) : ${OBJS}
 	ar rc ${NAME} ${OBJS}
+
+$(NAME_BONUS) : ${OBJS_BONUS}
+	ar rc ${NAME} ${OBJS_BONUS}
+
+all:	${NAME}
+
+bonus: all ${NAME_BONUS}
 
 clean :
 	rm -f ${OBJS}
