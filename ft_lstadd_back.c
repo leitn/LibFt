@@ -1,18 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: letnitan <letnitan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/07 13:40:53 by letnitan          #+#    #+#             */
-/*   Updated: 2022/11/22 12:22:54 by letnitan         ###   ########.fr       */
+/*   Created: 2022/11/22 12:59:19 by letnitan          #+#    #+#             */
+/*   Updated: 2022/11/22 13:03:59 by letnitan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isdigit(int c)
-{
-	if (c <= '9' && c >= '0')
-		return (1);
-	return (0);
-}
+#include "libft.h"
+
+void	ft_lstadd_back(t_list **lst, t_list *new);
