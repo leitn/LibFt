@@ -1,3 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: letnitan <letnitan@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/22 12:04:19 by letnitan          #+#    #+#             */
+/*   Updated: 2022/11/22 12:19:34 by letnitan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-void ft_putnbr_fd(int n, int fd);
+void	ft_putnbr_fd(int n, int fd)
+{
+	char		*x;
+
+	x = ft_itoa(n);
+	if (x != NULL)
+		ft_putstr_fd(x, fd);
+}
