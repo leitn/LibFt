@@ -6,7 +6,7 @@
 /*   By: letnitan <letnitan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 18:11:01 by letnitan          #+#    #+#             */
-/*   Updated: 2022/11/22 14:44:28 by letnitan         ###   ########.fr       */
+/*   Updated: 2022/11/22 17:01:23 by letnitan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 			d[n] = s[n];
 		}
 	}
-	if ((ft_strlen(s) - ft_strlen(d)) >= n)
+	else
 	{
 		while (i < n && dest != src && d != s)
 		{
