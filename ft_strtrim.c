@@ -6,45 +6,42 @@
 /*   By: letnitan <letnitan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 09:37:18 by letnitan          #+#    #+#             */
-/*   Updated: 2022/11/22 14:40:00 by letnitan         ###   ########.fr       */
+/*   Updated: 2022/11/22 16:40:20 by letnitan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	checkset(const char c, const char *set)
-{
-	unsigned int	i;
-
-	i = 0;
-	while (set[i])
-	{
-		if (set[i] == c)
-			return (1);
-		i++;
-	}
-	return (0);
-}
-
 static int	is_set_beginning(const char *s1, const char *set)
 {
-	unsigned int	i;
+	size_t	i;
+	size_t	len;
 
 	i = 0;
-	while (checkset(s1[i], set) == 1)
+	len = ft_strlen(s1);
+	while (i < len)
 	{
+		if (ft_strchr(set, s1[i]) == 0)
+			break ;
 		i++;
 	}
 	return (i);
 }
 
-static int	is_set_end(const char *s1, const char *set, unsigned int i)
+static int	is_set_end(const char *s1, const char *set)
 {
-	while (checkset(s1[i], set) == 1)
+	size_t	len;
+	size_t	i;
+
+	len = ft_strlen(s1);
+	i = 0;
+	while (i < len)
 	{
-		i--;
+		if (ft_strchr(set, s1[len - i - 1]) == 0)
+			break ;
+		i++;
 	}
-	return (i + 1);
+	return (len - i);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
@@ -53,12 +50,14 @@ char	*ft_strtrim(char const *s1, char const *set)
 	unsigned int	j;
 
 	i = 0;
-	if (s1 == NULL || set == NULL)
+	if (s1 == NULL)
 		return (NULL);
+	if (set == NULL)
+		return (ft_strdup(s1));
 	j = ft_strlen(s1) - 1;
 	if (is_set_beginning(s1, set) > 0)
 		i = is_set_beginning(s1, set);
-	if (is_set_end(s1, set, j) > 0)
-		j = is_set_end(s1, set, j);
+	if (is_set_end(s1, set) > 0)
+		j = is_set_end(s1, set);
 	return (ft_substr(s1, i, j - i));
 }
