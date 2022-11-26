@@ -6,7 +6,7 @@
 #    By: letnitan <letnitan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/13 14:49:16 by letnitan          #+#    #+#              #
-#    Updated: 2022/11/22 18:02:08 by letnitan         ###   ########.fr        #
+#    Updated: 2022/11/26 20:17:00 by letnitan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,7 @@ SRCS =	ft_isalpha.c	\
 		ft_memmove.c	\
 		ft_split.c	\
 
-BONUS =	ft_lstnez.c	\
+BONUS =	ft_lstnew.c	\
 		ft_lstadd_front.c	\
 		ft_lstsize.c	\
 		ft_lstlast.c	\
@@ -67,23 +67,22 @@ $(NAME) : ${OBJS}
 	ar rc ${NAME} ${OBJS}
 
 $(NAME_BONUS) : ${OBJS_BONUS}
-	ar rc ${NAME} ${OBJS_BONUS}
+	ar rc ${NAME_BONUS} ${OBJS_BONUS}
 
 all:	${NAME}
 
-bonus: all ${NAME_BONUS}
+bonus: ${OBJS_BONUS}
+	ar rc ${NAME} ${OBJS_BONUS}
 
 clean :
 	rm -f ${OBJS}
 
 fclean : clean
 	rm -f ${NAME}
+	rm -f ${NAME_BONUS}
+	rm -f ${OBJS_BONUS}
 
 re : fclean all
-
-so:
-	gcc -nostartfiles -fPIC $(CFLAGS) $(SRCS)
-	gcc -nostartfiles -shared -o libft.so $(OBJS)
 
 .o .c:
 	gcc -Wall -Werror -Wextra -I ${HEADER} -c $< -o ${<:.c = .o}
